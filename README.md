@@ -14,8 +14,6 @@ An Architecture of the project is shown below.
 ![<insert Architecture Drawing>](https://content.screencast.com/users/ChiGbugu/folders/Default/media/2bd73dcd-223c-4195-9e63-1318641db1dc/CICDAzurePipeline.jpg)
 
 
-![##### *Azure Web Server Architecture (Deny Access from Internet)*Azure WebServer Deny Internet to VMs](https://engrcog.com/wp-content/uploads/2020/09/Automate-WebServerno-bastion.jpeg)
-
 
 ## Planning
 ### Spreadsheet
