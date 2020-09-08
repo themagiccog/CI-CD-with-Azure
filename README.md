@@ -1,51 +1,50 @@
-# Overview
+# Building a CI/CD Pipeline (using Azure)
 
-<TODO: complete this with an overview of your project>
+### Creating a Linux Based Python WebApp and managing deployment using CI/CD and Agile Methodology
 
-## Project Plan
-<TODO: Project Plan
+## Overview
 
-* A link to a Trello board for the project
-* A link to a spreadsheet that includes the original and final project plan>
+This project is going to detail the cycle of a production application from Planning to Deployment. We are going to investigate the Agile Methodology and utilize it in developing this Webapp. In this project, we will learn how to use spreadsheets to effectively plan the project by creating an estimated time duration for the tasks. We will use Trello to identify and track the steps identified in the project plan. The code environment will have to be set up, we intend to use Azure Cloud shell as our environment for code development. We will use Github as our repository. Azure Pipelines will be used establish the CI/CD pipeline however, we will do a test with GitHubs to verify that we can do remote tests on Python application.
+All our work with python will be done in a virtual python environment within Azure Shell.
+To allow Azure cloud shell access Github we will create SSH keys in Azure Cloud Shell and it will be used to interface with Github to eliminate the need for persistent login authorizations. 
+A Webapp will be developed using Azure. the purpose of the WebApp is to serve as an API to provide predictions on House Values in Boston given a set of parameters and attributes, using Machine Learning. A Flask (Python package) will be used for the Web Server.
 
-## Instructions
+An Architecture of the project is shown below.
 
-<TODO:  
-* Architectural Diagram (Shows how key parts of the system work)>
+![<insert Architecture Drawing>](https://content.screencast.com/users/ChiGbugu/folders/Default/media/2bd73dcd-223c-4195-9e63-1318641db1dc/CICDAzurePipeline.jpg)
 
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
 
-* Project running on Azure App Service
+![##### *Azure Web Server Architecture (Deny Access from Internet)*Azure WebServer Deny Internet to VMs](https://engrcog.com/wp-content/uploads/2020/09/Automate-WebServerno-bastion.jpeg)
 
-* Project cloned into Azure Cloud Shell
 
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
+## Planning
+### Spreadsheet
+To plan this project, we will be utilizing spreadsheets. The spreadsheet will identify the project plans on tasks and activities to be delivered on a weekly basis. Each task will assigned an estimated difficulty level and/or a time duration. We will use Microsoft Excel for this purpose. A quarterly and yearly plan will also be covered with the spreadsheet.
+<Insert link to the spreadsheet>
 
-* Output of a test run
+### Trello
+Trello will be used as our task board for this project. The Key tasks as identified in the project plan will be assigned a Card. Each card will pass throught the following process in order: To Do, In Progress and Down.
+_Please visit the link below to access the Trello board._
 
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+## Coding Environment (Azure Cloud Shell/ Github)
+### Azure Cloud Shell
+The coding environment we will utilize for this project is the Azure Cloud Shell. The Azure Cloud Shell is a service from Azure Cloud so it will make it swifter to intergrate with the components of the Azure shell like creating a Web App, creating a Resource group and Creating an App service - which is needed for the WebApp to run.
 
-* Running Azure App Service from Azure Pipelines automatic deployment
+You can access Azure Cloud Sheel via serval means, but we will focus on 2 main ways. The first option is to log on to Azure portal (portal.azure.com) and click the Cloud shell Icon as shown below.
+![Azure Cloud Shell Icon](https://content.screencast.com/users/ChiGbugu/folders/Default/media/7013c63b-d74c-42c5-97f5-08699339064f/AzureCloudShell.jpg)
 
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
+The second option is to log on directly to the Azure Cloud Shell at https://shell.azure.com/. When you go to this link, you will be required to sign on.
 
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
+
+### Github
+To hold the project code repository, we will use Github. 
+The Github will be strutured as follows:
 ```
+MainRepoFolder 
+	|-------> CI Tests Folder
+	|-------> CI/CD Deployment Folder
+```
+### Interface/Interaction 
+Azure Cloud Shell can interact with Github in several ways most notably via HTTPS or SSH. We will setup SSH in Azure for communication as HTTP communications will require authenticating username and password before interaction.
 
-* Output of streamed log files from deployed application
-
-> 
-
-## Enhancements
-
-<TODO: A short description of how to improve the project in the future>
-
-## Demo 
-
-<TODO: Add link Screencast on YouTube>
-
-
+#### Let's set up our Github and Azure Cloud Shell Environment:
